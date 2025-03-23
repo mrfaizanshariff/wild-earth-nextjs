@@ -12,7 +12,35 @@ import { Calendar as CalendarIcon } from 'lucide-react';
 
 export default function Booking() {
   const [date, setDate] = useState<Date | undefined>(new Date());
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    numberOfGuest: '',
+    specialRequest:''
+  });
+  let message:any
 
+  const handleSubmit = (e: React.FormEvent)=>{
+      e.preventDefault();
+     
+      message = `Hi My Name is ${formData.name}, My number is ${formData?.phone}, ${formData.email.length ? 'My Email is '+formData.email+',':''} I want to checkin on ${date?.toString().slice(0,10)}, and the number of Guest are ${formData.numberOfGuest}.
+        ${formData?.specialRequest.length ? 'Special Request: '+ formData.specialRequest:''}
+      `;
+      const encodedMessage = encodeURIComponent(message);
+  
+      const whatsappUrl = `https://wa.me/+919845866505?text=${encodedMessage}`;
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          numberOfGuest: '',
+          specialRequest: ''
+        })
+        setDate
+      window.open(whatsappUrl, '_blank');
+
+  }
   return (
     <div className="min-h-screen pt-20">
       {/* Hero Section */}
@@ -29,26 +57,29 @@ export default function Booking() {
       <section className="py-20">
         <div className="container max-w-4xl">
           <Card className="p-8">
-            <form className="space-y-8">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <form className="space-y-8" onSubmit={handleSubmit}>
+              
                 <div className="space-y-4">
-                  <Label htmlFor="firstName">First Name</Label>
-                  <Input id="firstName" placeholder="Enter your first name" />
+                  <Label htmlFor="firstName">Name</Label>
+                  <Input id="firstName" value={formData.name} required={true}
+                  onChange={(e) => setFormData({ ...formData, name: e.target.value })} placeholder="Enter your first name" />
                 </div>
-                <div className="space-y-4">
-                  <Label htmlFor="lastName">Last Name</Label>
-                  <Input id="lastName" placeholder="Enter your last name" />
-                </div>
-              </div>
+             
 
               <div className="space-y-4">
                 <Label htmlFor="email">Email</Label>
-                <Input id="email" type="email" placeholder="Enter your email" />
+                <Input id="email" value={formData.email} 
+                  onChange={(e)=>setFormData({...formData, email: e.target.value})}
+                  type="email" placeholder="Enter your email" />
               </div>
 
               <div className="space-y-4">
                 <Label htmlFor="phone">Phone</Label>
-                <Input id="phone" type="tel" placeholder="Enter your phone number" />
+                <Input id="phone" type="tel"
+                required={true}
+                value={formData.phone}
+                onChange={(e)=>setFormData({...formData, phone: e.target.value})}
+                 placeholder="Enter your phone number" />
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -59,6 +90,7 @@ export default function Booking() {
                       <Button
                         variant="outline"
                         className="w-full justify-start text-left font-normal"
+                       
                       >
                         <CalendarIcon className="mr-2 h-4 w-4" />
                         {date ? format(date, 'PPP') : <span>Pick a date</span>}
@@ -69,6 +101,7 @@ export default function Booking() {
                         mode="single"
                         selected={date}
                         onSelect={setDate}
+                        className='bg-white'
                         initialFocus
                       />
                     </PopoverContent>
@@ -76,7 +109,10 @@ export default function Booking() {
                 </div>
                 <div className="space-y-4">
                   <Label htmlFor="guests">Number of Guests</Label>
-                  <Input id="guests" type="number" min="1" placeholder="Enter number of guests" />
+                  <Input id="guests" type="number" value={formData.numberOfGuest}
+                  onChange={(e)=>{setFormData({...formData,numberOfGuest:e.target.value})}}
+                  required={true}
+                  min="1" placeholder="Enter number of guests" />
                 </div>
               </div>
 
@@ -84,6 +120,8 @@ export default function Booking() {
                 <Label htmlFor="specialRequests">Special Requests</Label>
                 <textarea
                   id="specialRequests"
+                  value={formData.specialRequest}
+                  onChange={(e)=>{setFormData({...formData,specialRequest:e.target.value})}}
                   className="w-full min-h-[100px] p-3 rounded-md border border-input"
                   placeholder="Any special requests or preferences?"
                 />

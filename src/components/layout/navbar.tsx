@@ -61,7 +61,7 @@ export function Navbar() {
               </Link>
               <Link
                href={`https://wa.me/+919845866505?text=${encodeURIComponent('Hi I am interested in your stay.')}`}
-                className="text-text hover:text-primary transition-colors"
+                className="text-text z-20 hover:text-primary transition-colors"
                 onClick={() => setIsOpen(false)}
               >
                 Book Now

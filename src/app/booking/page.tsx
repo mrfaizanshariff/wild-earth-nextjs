@@ -24,7 +24,11 @@ export default function Booking() {
   const handleSubmit = (e: React.FormEvent)=>{
       e.preventDefault();
      
-      message = `Hi My Name is ${formData.name}, My number is ${formData?.phone}, ${formData.email.length ? 'My Email is '+formData.email+',':''} I want to checkin on ${date?.toString().slice(0,10)}, and the number of Guest are ${formData.numberOfGuest}.
+      message = `Name: ${formData.name}.
+                 Contact: ${formData?.phone}.
+                ${formData.email.length ? 'Email:'+formData.email:''}
+                 Checkin-date: ${date?.toString().slice(0,10)}.
+                 Number of Guest: ${formData.numberOfGuest}.
         ${formData?.specialRequest.length ? 'Special Request: '+ formData.specialRequest:''}
       `;
       const encodedMessage = encodeURIComponent(message);

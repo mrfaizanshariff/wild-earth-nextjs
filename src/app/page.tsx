@@ -2,13 +2,13 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '../components/ui/button';
 import { AmenityCard } from '../components/home/amenity-card';
-import { Leaf, Utensils, Wifi, Coffee } from 'lucide-react';
-
+import { Leaf, Utensils, Wifi, Coffee, Fish, Fence, HandPlatter, TowerControl, Tent, PawPrint, ShowerHead, FlameKindling, Sailboat, LandPlot, Camera, Waves, Binoculars, Bike, Footprints } from 'lucide-react';
+import Img1 from '../../public/landingPageimg1.webp'
 const amenities = [
   {
-    icon: Leaf,
-    title: 'Eco-Friendly',
-    description: 'Sustainable practices and minimal environmental impact',
+    icon: Fence,
+    title: 'Fenced Area',
+    description: 'Stay Safe and Secure—Fully Fenced for Your Peace of Mind.',
   },
   {
     icon: Utensils,
@@ -16,14 +16,76 @@ const amenities = [
     description: 'Fresh, local ingredients prepared by expert chefs',
   },
   {
-    icon: Wifi,
-    title: 'Wi-Fi',
-    description: 'Stay connected with high-speed internet',
+    icon: TowerControl,
+    title: 'Watch Tower',
+    description: 'Soak in Panoramic Views from Our Scenic Watch Tower',
   },
   {
-    icon: Coffee,
-    title: 'Premium Service',
-    description: '24/7 concierge and personalized attention',
+    icon: HandPlatter,
+    title: 'Dining Area',
+    description: 'Savor Every Bite in Our Beautifully Designed Dining Space.',
+  },
+  {
+    icon: Tent,
+    title: 'High-Quality Tent',
+    description: 'Experience the Outdoors in Premium, All-Weather Tents.',
+  },
+  {
+    icon: PawPrint,
+    title: 'Pet Friendly',
+    description: 'Bring Your Furry Friends—We’re a Pet-Loving Camp!',
+  },
+  {
+    icon: ShowerHead,
+    title: 'Premium Bathrooms',
+    description: 'Indulge in Clean, Modern, and Luxurious Restrooms.',
+  },
+  {
+    icon: FlameKindling,
+    title: 'Bonfire',
+    description: 'Gather, Relax, and Make Memories Around the Bonfire.',
+  },
+];
+const activities = [
+  {
+    icon: Fish,
+    title: 'Fishing',
+    description: 'Cast Your Line and Reel in Serenity',
+  },
+  {
+    icon: Sailboat,
+    title: 'Boating',
+    description: 'Glide Across Calm Waters for the Ultimate Escape.',
+  },
+  {
+    icon: Footprints,
+    title: 'Jungle Walk',
+    description: 'Trek Through Untamed Trails and Discover the Wild.',
+  },
+  {
+    icon: Bike,
+    title: 'Cycling',
+    description: 'Pedal Through Scenic Routes and Feel the Freedom.',
+  },
+  {
+    icon: Binoculars,
+    title: 'Bird-Watching',
+    description: 'Spot Rare Birds in Their Natural Habitat.',
+  },
+  {
+    icon: Waves,
+    title: 'Swimming',
+    description: 'Cool Off and Refresh in Natural Waters.',
+  },
+  {
+    icon: Camera,
+    title: 'Photography',
+    description: 'Capture Picture-Perfect Moments at Every Turn.',
+  },
+  {
+    icon: LandPlot,
+    title: 'Outdoor Sports',
+    description: 'Get Active with Fun-Filled Games Under the Open Sky.',
   },
 ];
 
@@ -39,7 +101,7 @@ export default function Home() {
           <p className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">
             Experience luxury in the heart of nature
           </p>
-          <Link href="/booking">
+          <Link href={`https://wa.me/+919845866505?text=${encodeURIComponent('Hi I am interested in your stay.')}`} >
             <Button size="lg" className="bg-primary hover:bg-primary-dark text-white">
               Book Your Stay
             </Button>
@@ -55,7 +117,7 @@ export default function Home() {
               <h2 className="section-title">Welcome to Paradise</h2>
               <p className="text-lg mb-6">
                 Nestled in the heart of pristine wilderness, Wild Earth Jungle Camp offers an unparalleled
-                blend of luxury and nature. Our eco-friendly resort provides an intimate connection with
+                blend of luxury and nature. Our jungle camp provides an intimate connection with
                 the wild while ensuring world-class comfort and service.
               </p>
               <p className="text-lg mb-8">
@@ -70,7 +132,7 @@ export default function Home() {
             </div>
             <div className="relative h-[400px] rounded-lg overflow-hidden">
               <Image
-                src="https://images.unsplash.com/photo-1571896349842-33c89424de2d"
+                src={Img1.src}
                 alt="Luxury tent in nature"
                 fill
                 className="object-cover"
@@ -90,6 +152,20 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {amenities.map((amenity, index) => (
               <AmenityCard key={index} {...amenity} />
+            ))}
+          </div>
+        </div>
+      </section>
+      {/* Activities Section */}
+      <section className="py-20 bg-white">
+        <div className="container">
+          <h2 className="section-title text-center">Our Activities</h2>
+          <p className="section-subtitle text-center">
+          Adventure Awaits: Dive Into Nature, Play, and Explore.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {activities.map((activity, index) => (
+              <AmenityCard key={index} {...activity} />
             ))}
           </div>
         </div>
@@ -137,7 +213,7 @@ export default function Home() {
           <p className="text-xl mb-8 max-w-2xl mx-auto">
             Book your stay now and experience the perfect blend of luxury and nature.
           </p>
-          <Link href="/booking">
+          <Link href={`https://wa.me/+919845866505?text=${encodeURIComponent('Hi I am interested in your stay.')}`}>
             <Button size="lg" className="bg-white text-primary hover:bg-white/90">
               Book Your Stay
             </Button>

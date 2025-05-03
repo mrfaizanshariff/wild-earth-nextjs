@@ -62,11 +62,7 @@ const activities = [
     title: 'Jungle Walk',
     description: 'Trek Through Untamed Trails and Discover the Wild.',
   },
-  {
-    icon: FishSymbol,
-    title: 'Fish Pedicure',
-    description: 'Relax as Tiny Fish Rejuvenate Your Feet Naturally.',
-  },
+  
   {
     icon: Bike,
     title: 'Cycling',
@@ -91,7 +87,11 @@ const activities = [
     icon: LandPlot,
     title: 'Outdoor Sports',
     description: 'Get Active with Fun-Filled Games Under the Open Sky.',
-  },
+  },{
+    icon: FishSymbol,
+    title: 'Fish Pedicure',
+    description: 'Relax as Tiny Fish Rejuvenate Your Feet Naturally.',
+  }
 ];
 
 export default function Home() {

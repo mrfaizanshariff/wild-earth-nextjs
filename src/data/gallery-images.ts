@@ -10,6 +10,9 @@ import  Img7 from '../../public/img7.jpeg'
 import  Img8 from '../../public/img8.jpeg'
 import  Img9 from '../../public/img9.jpeg'
 import  Img10 from '../../public/img10.jpeg'
+import  Img12 from '../../public/img12.jpeg'
+import  Img13 from '../../public/img13.jpeg'
+import  Img14 from '../../public/img14.jpeg'
 export const galleryImages = [
   {
     src: Img1.src,
@@ -50,5 +53,20 @@ export const galleryImages = [
     src:Img10.src,
     title: 'Family Time',
     description: 'Spend quality time with loved one',
+  },
+  {
+    src:Img12.src,
+    title: 'Sunset View',
+    description: 'Breathtaking evening views',
+  },
+  {
+    src:Img13.src,
+    title: 'Aerial View',
+    description: 'Breathtaking evening views',
+  },
+  {
+    src:Img14.src,
+    title: 'Sunset View',
+    description: 'Breathtaking evening views',
   },
 ];

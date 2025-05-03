@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '../components/ui/button';
 import { AmenityCard } from '../components/home/amenity-card';
-import { Leaf, Utensils, Wifi, Coffee, Fish, Fence, HandPlatter, TowerControl, Tent, PawPrint, ShowerHead, FlameKindling, Sailboat, LandPlot, Camera, Waves, Binoculars, Bike, Footprints } from 'lucide-react';
+import { Leaf, Utensils, Wifi, Coffee, Fish, Fence, HandPlatter, TowerControl, Tent, PawPrint, ShowerHead, FlameKindling, Sailboat, LandPlot, Camera, Waves, Binoculars, Bike, Footprints, FishSymbol } from 'lucide-react';
 import Img1 from '../../public/landingPageimg1.webp'
 const amenities = [
   {
@@ -61,6 +61,11 @@ const activities = [
     icon: Footprints,
     title: 'Jungle Walk',
     description: 'Trek Through Untamed Trails and Discover the Wild.',
+  },
+  {
+    icon: FishSymbol,
+    title: 'Fish Pedicure',
+    description: 'Relax as Tiny Fish Rejuvenate Your Feet Naturally.',
   },
   {
     icon: Bike,

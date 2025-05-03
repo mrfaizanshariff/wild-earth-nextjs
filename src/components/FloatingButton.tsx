@@ -12,7 +12,7 @@ interface SocialFloatingButtonsProps {
 const SocialFloatingButtons: React.FC<SocialFloatingButtonsProps> = ({
   whatsappNumber = "+919845866505", // Replace with your actual WhatsApp number
   instagramUsername = "wildearthjunglecamp", // Replace with your Instagram username
-  whatsappMessage = "Hello! I'm interested in your services."
+  whatsappMessage = "Hi I'm interested in your stay."
 }) => {
   // Encode the WhatsApp message for URL
   const encodedMessage = encodeURIComponent(whatsappMessage);

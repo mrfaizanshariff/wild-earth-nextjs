@@ -6,7 +6,7 @@ import { Footer } from '../components/layout/footer';
 import FloatingButtons from '../components/FloatingButton';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import SocialFloatingButtons from '../components/FloatingButton';
-
+import { Analytics } from "@vercel/analytics/react"
 const playfair = Playfair_Display({ subsets: ['latin'] });
 const lora = Lora({ subsets: ['latin'], variable: '--font-lora' });
 
@@ -24,7 +24,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${playfair.className} ${lora.variable}`}>
         <Navbar />
-        <main>{children}</main>
+        <main>{children}<Analytics /></main>
         <SocialFloatingButtons 
         whatsappNumber="+919845866505" // Replace with your actual WhatsApp number
         instagramUsername="wildearthjunglecamp" // Replace with your Instagram username
